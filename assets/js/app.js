@@ -6,8 +6,8 @@ import { loadAllIcons } from "./modules/svg-loader.js";
 
 loadAllIcons(".");
 
-renderProductList("new-arrivals");
-renderProductList("top-selling");
+renderProductList("new-arrivals", ".");
+renderProductList("top-selling", ".");
 renderReviews();
 loadAllIcons();
 

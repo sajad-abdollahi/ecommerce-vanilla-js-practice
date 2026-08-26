@@ -1,6 +1,6 @@
 import { createRatingStars } from "./rating-stars.js";
 
-export function createProductCard(product) {
+export function createProductCard(product,basePath = ".") {
   const discountedPrice = (
     product.price -
     (product.price * product.discount) / 100
@@ -8,7 +8,7 @@ export function createProductCard(product) {
   return `
     <li class="product-card">
         <div class="prd-card-img">
-            <img src="${product.image}" alt="${product.title}">
+            <img src="${basePath}/${product.image}" alt="${product.title}">
             ${
               product.discount > 0
                 ? `<span class="discount-badge">-${product.discount}%</span>`

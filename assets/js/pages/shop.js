@@ -8,7 +8,7 @@ import { createProductCard } from "../components/product-card.js";
 function renderProducts(products) {
   const grid = document.getElementById("products-grid");
   grid.innerHTML = products
-    .map((product) => createProductCard(product))
+    .map((product) => createProductCard(product, ".."))
     .join("");
 }
 
