@@ -1,0 +1,9 @@
+# Personal AI-guidance file — not for public repo
+SHOPCO_PROJECT_ROADMAP_FA.md
+
+# OS-generated files
+.DS_Store
+Thumbs.db
+
+# Editor-specific settings
+.vscode/

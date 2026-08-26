@@ -1,0 +1,21 @@
+:root {
+  /* background colors */
+  --bg-primary: #ffffff;
+  --bg-secondary: #f2f0f1;
+  --bg-cards-h: #f0eeed;
+  --bg-cards-l: #f0f0f0;
+  --bg-black: #000;
+
+  /* text colors */
+  --txt-primary: #000;
+  --txt-secondary: #909090;
+  --txt-white: #fff;
+
+  /* accent */
+  --green-phosphory:#33f11680;
+  --validation-color:#33f11680;
+
+  /* layout */
+  --header-height: 126px;
+  --header-height-mobile: 100px;
+}

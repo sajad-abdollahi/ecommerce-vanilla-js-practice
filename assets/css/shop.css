@@ -1,0 +1,29 @@
+.breadcrumb {
+}
+.breadcrumb-current {
+}
+.shop-layout {
+  display: flex;
+  gap: 20px;
+  width: 100%;
+  max-width: 1320px;
+  padding: 20px;
+}
+.filters-sidebar {
+  width: 250px;
+  flex-shrink: 0;
+}
+.product-area {
+  flex: 1;
+}
+.products-area-header {
+}
+.product-title {
+}
+.sort-select {
+}
+.products-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
