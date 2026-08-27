@@ -1,6 +1,6 @@
 import { createRatingStars } from "./rating-stars.js";
 
-export function createProductCard(product,basePath = ".") {
+export function createProductCard(product, basePath = ".") {
   const discountedPrice = (
     product.price -
     (product.price * product.discount) / 100

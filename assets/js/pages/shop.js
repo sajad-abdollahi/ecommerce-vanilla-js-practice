@@ -86,3 +86,24 @@ sortSelect.addEventListener("change", (e) => {
   filters.sortBy = option;
   applyFilters();
 });
+
+const categoryButtons = document.querySelectorAll("[data-category]");
+
+categoryButtons.forEach((btn) => {
+  btn.addEventListener("click", () => {
+    const category = btn.dataset.category;
+    if (filters.category === category) {
+      filters.category = null;
+    } else {
+      filters.category = category;
+    }
+
+    categoryButtons.forEach((b) => b.classList.remove("active"));
+
+    if (filters.category) {
+      btn.classList.add("active");
+    }
+
+    applyFilters();
+  });
+});
