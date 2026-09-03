@@ -88,7 +88,6 @@ sortSelect.addEventListener("change", (e) => {
 });
 
 const categoryButtons = document.querySelectorAll("[data-category]");
-
 categoryButtons.forEach((btn) => {
   btn.addEventListener("click", () => {
     const category = btn.dataset.category;
@@ -102,6 +101,24 @@ categoryButtons.forEach((btn) => {
 
     if (filters.category) {
       btn.classList.add("active");
+    }
+
+    applyFilters();
+  });
+});
+
+const colorCheckboxes = document.querySelectorAll(
+  '#color-filter input[type="checkbox"]',
+);
+
+colorCheckboxes.forEach((checkbox) => {
+  checkbox.addEventListener("change", () => {
+    const color = checkbox.value;
+
+    if (checkbox.checked) {
+      filters.colors.push(color);
+    } else {
+      filters.colors = filters.colors.filter((c) => c !== color);
     }
 
     applyFilters();

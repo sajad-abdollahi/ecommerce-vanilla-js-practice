@@ -1,7 +1,7 @@
-.breadcrumb {
+/* .breadcrumb {
 }
 .breadcrumb-current {
-}
+} */
 .shop-layout {
   display: flex;
   gap: 20px;
@@ -16,12 +16,12 @@
 .product-area {
   flex: 1;
 }
-.products-area-header {
+/* .products-area-header {
 }
 .product-title {
 }
 .sort-select {
-}
+} */
 .products-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -59,4 +59,47 @@
 }
 .filter-list button:not(.active)::after {
   transform-origin: right;
+}
+.color-filter-list {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  margin-top: 20px;
+}
+.color-swatch {
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+
+  & span {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    border: 1px solid #00000050;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+  }
+}
+.color-swatch span::after {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 3px;
+  border-radius: 9999px;
+  background-color: gray;
+  bottom: -10px;
+  opacity: 0;
+  transition:
+    display 0.3s ease,
+    width 0.3s ease;
+}
+.color-swatch input:checked + span::after {
+  width: 15px;
+  opacity: 1;
 }
