@@ -12,6 +12,10 @@
 .filters-sidebar {
   width: 250px;
   flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  gap: 30px;
 }
 .product-area {
   flex: 1;
@@ -26,49 +30,54 @@
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 20px;
+  list-style: none;
+}
+/* filters */
+.filter-group {
+  display: flex;
+  flex-direction: column;
+  padding: 5px;
+}
+/* filter list */
+
+.filter-list li {
+  width: 100%;
+  border-radius: 10px;
+  margin-top: 10px;
+  padding-inline: 5px;
 }
 .filter-list button {
-  background-color: transparent;
+  width: 100%;
+  background-color: var(--bg-cards-lighterلهف );
+  border-radius: 10px;
+  text-align: start;
   border: none;
-  padding: 5px;
-  margin-block: 10px;
-  transition:
-    color 0.2s ease,
-    scale 0.2s ease;
+  padding-block: 10px;
+  padding-inline-start: 10px;
+  margin-block: 1px;
+  transition: 0.3s ease;
   position: relative;
 }
 
 .filter-list button.active {
-  color: var(--bg-black);
   scale: 1.1;
+  font-weight: bold;
+  padding-inline-start: 15px;
+  color: var(--txt-white);
+  background-color: var(--bg-black);
 }
-.filter-list button::after {
-  content: "";
-  position: absolute;
-  width: 100%;
-  height: 1px;
-  background-color: #00000080;
-  inset-inline-start: 0;
-  bottom: 1px;
-  transform: scaleX(0);
-  transform-origin: left;
-  transition: transform 0.2s ease;
-}
-.filter-list button.active::after {
-  transform: scaleX(1);
-}
-.filter-list button:not(.active)::after {
-  transform-origin: right;
-}
+
+/* filter color */
 .color-filter-list {
+  width: 100%;
   display: flex;
   align-items: center;
   justify-content: space-evenly;
   margin-top: 20px;
 }
 .color-swatch {
-  width: 35px;
-  height: 35px;
+  width: 30px;
+  height: 30px;
   border-radius: 50%;
   display: flex;
   align-items: center;
@@ -95,11 +104,46 @@
   background-color: gray;
   bottom: -10px;
   opacity: 0;
-  transition:
-    display 0.3s ease,
-    width 0.3s ease;
+  transition: width 0.3s ease;
 }
 .color-swatch input:checked + span::after {
   width: 15px;
   opacity: 1;
+}
+
+/* filter size */
+.size-filter-list {
+  margin-top: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
+.size-swatch {
+  width: fit-content;
+  height: fit-content;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.size-swatch span {
+  padding-block: 5px;
+  padding-inline: 15px;
+  border-radius: 5px;
+  cursor: pointer;
+  background-color: #00000010;
+  border: 1px solid transparent;
+  transition:
+    border 0.3s ease,
+    color 0.3s ease,
+    background-color 0.3s ease;
+  &:hover {
+    border-color: #00000036;
+  }
+}
+
+.size-swatch input:checked + span {
+  background-color: var(--bg-black);
+  color: var(--txt-white);
+  border-color: var(--bg-black);
 }

@@ -4,12 +4,13 @@
   --bg-secondary: #f2f0f1;
   --bg-cards-h: #f0eeed;
   --bg-cards-l: #f0f0f0;
-  --bg-black: #000;
+  --bg-cards-lighter:  #00000010;
+  --bg-black: #000000;
 
   /* text colors */
   --txt-primary: #000;
   --txt-secondary: #909090;
-  --txt-white: #fff;
+  --txt-white: #ffffff;
 
   /* accent */
   --green-phosphory:#33f11680;

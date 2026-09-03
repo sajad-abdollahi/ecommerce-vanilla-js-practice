@@ -124,3 +124,21 @@ colorCheckboxes.forEach((checkbox) => {
     applyFilters();
   });
 });
+
+const sizeCheckboxes = document.querySelectorAll(
+  '#size-filter input[type="checkbox"]',
+);
+
+sizeCheckboxes.forEach((checkbox) => {
+  checkbox.addEventListener("change", () => {
+    const size = checkbox.value;
+
+    if (checkbox.checked) {
+      filters.sizes.push(size);
+    } else {
+      filters.sizes = filters.sizes.filter((s) => s !== size);
+    }
+
+    applyFilters();
+  });
+});
