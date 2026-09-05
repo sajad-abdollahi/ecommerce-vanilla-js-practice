@@ -44,11 +44,14 @@
   width: 100%;
   border-radius: 10px;
   margin-top: 10px;
-  padding-inline: 5px;
+  border: 1px solid transparent;
+}
+.filter-list li:hover {
+  border-color: var(--bor-blk-liter);
 }
 .filter-list button {
   width: 100%;
-  background-color: var(--bg-cards-lighterلهف );
+  background-color: var(--bg-cards-lighter);
   border-radius: 10px;
   text-align: start;
   border: none;
@@ -58,7 +61,6 @@
   transition: 0.3s ease;
   position: relative;
 }
-
 .filter-list button.active {
   scale: 1.1;
   font-weight: bold;
@@ -138,7 +140,7 @@
     color 0.3s ease,
     background-color 0.3s ease;
   &:hover {
-    border-color: #00000036;
+    border-color: var(--bor-blk-liter);
   }
 }
 

@@ -87,26 +87,6 @@ sortSelect.addEventListener("change", (e) => {
   applyFilters();
 });
 
-const categoryButtons = document.querySelectorAll("[data-category]");
-categoryButtons.forEach((btn) => {
-  btn.addEventListener("click", () => {
-    const category = btn.dataset.category;
-    if (filters.category === category) {
-      filters.category = null;
-    } else {
-      filters.category = category;
-    }
-
-    categoryButtons.forEach((b) => b.classList.remove("active"));
-
-    if (filters.category) {
-      btn.classList.add("active");
-    }
-
-    applyFilters();
-  });
-});
-
 const colorCheckboxes = document.querySelectorAll(
   '#color-filter input[type="checkbox"]',
 );
@@ -142,3 +122,29 @@ sizeCheckboxes.forEach((checkbox) => {
     applyFilters();
   });
 });
+
+// filter style & filter category
+
+function setupToggleFilter(selector, filterKey) {
+  const buttons = document.querySelectorAll(selector);
+
+  buttons.forEach((btn) => {
+    btn.addEventListener("click", () => {
+      const value = btn.dataset[filterKey];
+
+      if (filters[filterKey] === value) {
+        filters[filterKey] = null;
+      } else {
+        filters[filterKey] = value;
+      }
+
+      buttons.forEach((b) => b.classList.remove("active"));
+      if (filters[filterKey]) btn.classList.add("active");
+
+      applyFilters();
+    });
+  });
+}
+
+setupToggleFilter("[data-category]", "category");
+setupToggleFilter("[data-style]", "style");
