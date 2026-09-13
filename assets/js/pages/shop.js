@@ -8,9 +8,17 @@ import { debounce } from "../modules/debounce.js";
 // این تابع رو برای رندر همه محصولات در  فروشگاه مینویسیم
 function renderProducts(products) {
   const grid = document.getElementById("products-grid");
-  grid.innerHTML = products
-    .map((product) => createProductCard(product, ".."))
-    .join("");
+  if (products.length) {
+    grid.innerHTML = products
+      .map((product) => createProductCard(product, ".."))
+      .join("");
+  } else {
+    grid.innerHTML = `
+    <div class="empty-state">
+      <span class="icon" data-icon="not-found" data-icon-path="icons"></span>
+      <p>محصولی یافت نشد</p>
+   </div>`;
+  }
 }
 
 const filters = {

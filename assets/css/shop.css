@@ -32,6 +32,19 @@
   gap: 20px;
   list-style: none;
 }
+
+
+.empty-state {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 60px 20px;
+  grid-column: 1/-1;
+}
+
+
 /* filters */
 .filter-group {
   display: flex;
