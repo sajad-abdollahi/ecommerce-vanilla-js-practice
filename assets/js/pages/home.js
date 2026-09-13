@@ -1,18 +1,3 @@
-// حذف فاصله بین هدر و مِین بعد از حذف نوار سیاه بالای هدر 
-export function initHomePage() {
-  const closeBtn = document.querySelector(".cross-icon-cover");
-  closeBtn.addEventListener("click", () => {
-    const alertBar = document.querySelector(".alertBar");
-    alertBar.remove();
-
-    document.documentElement.style.setProperty("--header-height", "96px");
-    document.documentElement.style.setProperty(
-      "--header-height-mobile",
-      "70px",
-    );
-  });
-}
-
 export function initNewsletter() {
   const form = document.querySelector(".newsletter-form");
 
