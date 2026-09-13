@@ -1,8 +1,9 @@
-import { renderHeader } from "../layout/header.js";
+import { initHeaderBehavior, renderHeader } from "../layout/header.js";
 import { renderFooter } from "../layout/footer.js";
 import { loadAllIcons } from "../modules/svg-loader.js";
 import { products } from "../data/products.js";
 import { createProductCard } from "../components/product-card.js";
+import { debounce } from "../modules/debounce.js";
 
 // این تابع رو برای رندر همه محصولات در  فروشگاه مینویسیم
 function renderProducts(products) {
@@ -70,6 +71,7 @@ function getFilteredProducts() {
 }
 
 renderHeader("..");
+initHeaderBehavior();
 renderFooter();
 renderProducts(getFilteredProducts());
 loadAllIcons("..");
@@ -80,6 +82,8 @@ function applyFilters() {
   loadAllIcons("..");
 }
 
+const debouncedApplyFilters = debounce(applyFilters, 300);
+
 const sortSelect = document.querySelector(".sort-select");
 sortSelect.addEventListener("change", (e) => {
   const option = e.target.value;
@@ -87,6 +91,7 @@ sortSelect.addEventListener("change", (e) => {
   applyFilters();
 });
 
+// colors filter
 const colorCheckboxes = document.querySelectorAll(
   '#color-filter input[type="checkbox"]',
 );
@@ -148,3 +153,44 @@ function setupToggleFilter(selector, filterKey) {
 
 setupToggleFilter("[data-category]", "category");
 setupToggleFilter("[data-style]", "style");
+
+// price filter
+function updateTooltipPosition(input, tooltip) {
+  const min = Number(input.min);
+  const max = Number(input.max);
+  const value = Number(input.value);
+
+  const percent = ((value - min) / (max - min)) * 100;
+  tooltip.style.left = `${percent}%`;
+  tooltip.textContent = value;
+}
+
+const minPriceInput = document.getElementById("min-price");
+const maxPriceInput = document.getElementById("max-price");
+const minPriceTooltip = document.getElementById("min-price-tooltip");
+const maxPriceTooltip = document.getElementById("max-price-tooltip");
+
+updateTooltipPosition(minPriceInput, minPriceTooltip);
+updateTooltipPosition(maxPriceInput, maxPriceTooltip);
+
+minPriceInput.addEventListener("input", () => {
+  if (Number(minPriceInput.value) > Number(maxPriceInput.value)) {
+    minPriceInput.value = maxPriceInput.value;
+  }
+  updateTooltipPosition(minPriceInput, minPriceTooltip);
+
+  filters.minPrice = Number(minPriceInput.value);
+
+  debouncedApplyFilters();
+});
+
+maxPriceInput.addEventListener("input", () => {
+  if (Number(maxPriceInput.value) < Number(minPriceInput.value)) {
+    maxPriceInput.value = minPriceInput.value;
+  }
+  updateTooltipPosition(maxPriceInput, maxPriceTooltip);
+
+  filters.maxPrice = Number(maxPriceInput.value);
+
+  debouncedApplyFilters();
+});
