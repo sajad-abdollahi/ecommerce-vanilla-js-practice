@@ -1,7 +1,13 @@
+// cache
+const svgCache = {};
+
 // لود یک اس وی جی از آدرسی که تابع پایینی میده در صفحه
 export async function loadSVG(url, targetElement) {
-  const respons = await fetch(url);
-  const svgContent = await respons.text();
+  if (!svgCache[url]) {
+    svgCache[url] = fetch(url).then((response) => response.text());
+  }
+
+  const svgContent = await svgCache[url];
   targetElement.innerHTML = svgContent;
 }
 
@@ -18,4 +24,3 @@ export function loadAllIcons(basePath = ".") {
     }
   });
 }
-

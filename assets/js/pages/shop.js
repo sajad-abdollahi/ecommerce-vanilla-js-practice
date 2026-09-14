@@ -21,7 +21,7 @@ function renderProducts(products) {
   }
 }
 
-const filters = {
+const defaultFilters = {
   category: null,
   style: null,
   colors: [],
@@ -30,6 +30,7 @@ const filters = {
   maxPrice: null,
   sortBy: "popular",
 };
+let filters = { ...defaultFilters };
 
 function getFilteredProducts() {
   //کپی ارایه اصلی
@@ -89,9 +90,10 @@ function applyFilters() {
   renderProducts(filtered);
   loadAllIcons("..");
 }
-
+// debouns
 const debouncedApplyFilters = debounce(applyFilters, 300);
 
+// sort
 const sortSelect = document.querySelector(".sort-select");
 sortSelect.addEventListener("change", (e) => {
   const option = e.target.value;
@@ -117,7 +119,7 @@ colorCheckboxes.forEach((checkbox) => {
     applyFilters();
   });
 });
-
+// size filter
 const sizeCheckboxes = document.querySelectorAll(
   '#size-filter input[type="checkbox"]',
 );
@@ -201,4 +203,37 @@ maxPriceInput.addEventListener("input", () => {
   filters.maxPrice = Number(maxPriceInput.value);
 
   debouncedApplyFilters();
+});
+
+// reset filters button
+
+const resetFilterBtn = document.querySelector("#reset-filters-btn");
+
+resetFilterBtn.addEventListener("click", () => {
+  filters = { ...defaultFilters, colors: [], sizes: [] };
+
+  const categoryFilter = document.querySelectorAll("[data-category]");
+  const styleFilter = document.querySelectorAll("[data-style]");
+
+  function removeFilter(elements) {
+    elements.forEach((el) => {
+      el.classList.remove("active");
+    });
+  }
+  colorCheckboxes.forEach((checkbox) => {
+    checkbox.checked = false;
+  });
+  sizeCheckboxes.forEach((checkbox) => {
+    checkbox.checked = false;
+  });
+
+  minPriceInput.value = Number(minPriceInput.min);
+  maxPriceInput.value = Number(maxPriceInput.max);
+  updateTooltipPosition(minPriceInput, minPriceTooltip);
+  updateTooltipPosition(maxPriceInput, maxPriceTooltip);
+
+  sortSelect.value = defaultFilters.sortBy;
+  removeFilter(categoryFilter);
+  removeFilter(styleFilter);
+  applyFilters();
 });

@@ -33,7 +33,6 @@
   list-style: none;
 }
 
-
 .empty-state {
   width: 100%;
   display: flex;
@@ -43,7 +42,6 @@
   padding: 60px 20px;
   grid-column: 1/-1;
 }
-
 
 /* filters */
 .filter-group {
@@ -192,4 +190,22 @@
   border-radius: 4px;
   font-size: 12px;
   white-space: nowrap;
+}
+
+/* reset button */
+.control-filters-cover {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 5px;
+}
+#reset-filters-btn {
+  padding: 10px 15px;
+  border-radius: 9999px;
+  border: none;
+  background-color: var(--bg-black);
+  color: var(--txt-white);
+  font-weight: bold;
+  letter-spacing: 0.5px;
 }
