@@ -13,7 +13,7 @@ export function renderHeader(basePath = ".") {
                 <div></div>
                 <div></div>
             </label>
-            <div class="logo">SHOP.CO</div>
+            <div class="logo"><a href="../index.html">SHOP.CO</a></div>
             <input type="checkbox" id="nav-control" class="nav-control-checkbox">
 
             <nav>

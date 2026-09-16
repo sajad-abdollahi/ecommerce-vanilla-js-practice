@@ -35,7 +35,7 @@ header {
   right: 0;
   z-index: 2;
   background-color: var(--bg-primary);
-  box-shadow: 0px 2px 3px #0000001a;
+  box-shadow: 0px 2px 3px var(--shado-black);
 }
 .alertBar {
   width: 100%;

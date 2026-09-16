@@ -4,6 +4,10 @@ import { loadAllIcons } from "../modules/svg-loader.js";
 import { products } from "../data/products.js";
 import { createProductCard } from "../components/product-card.js";
 import { debounce } from "../modules/debounce.js";
+import {
+  renderNewsletter,
+  initNewsletterBehavior,
+} from "../layout/newsletter.js";
 
 // این تابع رو برای رندر همه محصولات در  فروشگاه مینویسیم
 function renderProducts(products) {
@@ -81,6 +85,8 @@ function getFilteredProducts() {
 
 renderHeader("..");
 initHeaderBehavior();
+renderNewsletter();
+initNewsletterBehavior();
 renderFooter();
 renderProducts(getFilteredProducts());
 loadAllIcons("..");

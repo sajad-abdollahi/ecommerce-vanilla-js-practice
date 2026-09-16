@@ -1,3 +1,14 @@
+.logo {
+  font-size: x-large;
+  & a {
+    text-decoration: none;
+    color: var(--txt-primary);
+    &:hover {
+      color: var(--txt-secondary);
+    }
+  }
+}
+
 .breadcrumb {
   padding: 10px 20px;
   width: 100%;
@@ -41,6 +52,13 @@
 .product-title {
   font-size: x-large;
 }
+
+/* product grid */
+.products-grid {
+  border-bottom: 2px solid var(--bor-blk-liter);
+  padding-bottom: 30px;
+}
+
 .sort-select {
   padding: 8px 16px;
   border: 1px solid #00000030;
