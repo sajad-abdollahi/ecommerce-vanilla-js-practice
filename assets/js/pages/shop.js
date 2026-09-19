@@ -36,6 +36,55 @@ const defaultFilters = {
 };
 let filters = { ...defaultFilters };
 
+// pagination
+let currentPage = 1;
+const productsPerPage = 6;
+
+function getPaginatedProducts(products) {
+  const start = (currentPage - 1) * productsPerPage;
+  const end = start + productsPerPage;
+  return products.slice(start, end);
+}
+
+function renderPagination(totalItems) {
+  const totalPages = Math.ceil(totalItems / productsPerPage);
+  const pagination = document.querySelector("#pagination");
+
+  let buttonsHTML = `<button type="button" id="prev-page" ${currentPage === 1 ? "disabled" : ""}>previous</button>`;
+
+  for (let i = 1; i <= totalPages; i++) {
+    buttonsHTML += `<button type="button" data-page="${i}"  class="${i === currentPage ? "active" : ""}">${i}</button>`;
+  }
+  buttonsHTML += `<button type="button" id="next-page" ${currentPage === totalPages ? "disabled" : ""}>next</button>`;
+
+  pagination.innerHTML = buttonsHTML;
+
+  const paginationBtns = document.querySelectorAll("[data-page]");
+  paginationBtns.forEach((button) => {
+    button.addEventListener("click", () => {
+      const currentBtn = Number(button.dataset.page);
+      if (currentBtn === currentPage) {
+        return;
+      } else {
+        currentPage = currentBtn;
+        applyFilters(false);
+      }
+    });
+  });
+
+  const prevBtn = document.querySelector("#prev-page");
+  prevBtn.addEventListener("click", () => {
+    if (currentPage !== 1) currentPage = currentPage - 1;
+    applyFilters(false);
+  });
+
+  const nextBtn = document.querySelector("#next-page");
+  nextBtn.addEventListener("click", () => {
+    if (currentPage !== totalPages) currentPage = currentPage + 1;
+    applyFilters(false);
+  });
+}
+
 function getFilteredProducts() {
   //کپی ارایه اصلی
   let result = [...products];
@@ -88,12 +137,16 @@ initHeaderBehavior();
 renderNewsletter();
 initNewsletterBehavior();
 renderFooter();
-renderProducts(getFilteredProducts());
-loadAllIcons("..");
+applyFilters();
 
-function applyFilters() {
+function applyFilters(isNewFilter = true) {
+  if (isNewFilter) {
+    currentPage = 1;
+  }
   const filtered = getFilteredProducts();
-  renderProducts(filtered);
+  const paginated = getPaginatedProducts(filtered);
+  renderProducts(paginated);
+  renderPagination(filtered.length);
   loadAllIcons("..");
 }
 // debouns
