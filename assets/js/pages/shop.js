@@ -51,9 +51,19 @@ function renderPagination(totalItems) {
   const pagination = document.querySelector("#pagination");
 
   let buttonsHTML = `<button type="button" id="prev-page" ${currentPage === 1 ? "disabled" : ""}>previous</button>`;
-
+  let lastShown = false;
   for (let i = 1; i <= totalPages; i++) {
-    buttonsHTML += `<button type="button" data-page="${i}"  class="${i === currentPage ? "active" : ""}">${i}</button>`;
+    const shouldShow =
+      i === 1 || i === totalPages || Math.abs(i - currentPage) <= 1;
+    if (shouldShow) {
+      buttonsHTML += `<button type="button" data-page="${i}"  class="${i === currentPage ? "active" : ""}">${i}</button>`;
+      lastShown = true;
+    } else {
+      if (lastShown) {
+        buttonsHTML += `<span class="pagination-dots">...</span>`;
+      }
+      lastShown = false;
+    }
   }
   buttonsHTML += `<button type="button" id="next-page" ${currentPage === totalPages ? "disabled" : ""}>next</button>`;
 
