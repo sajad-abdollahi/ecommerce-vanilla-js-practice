@@ -94,6 +94,16 @@ function renderPagination(totalItems) {
     applyFilters(false);
   });
 }
+// x of y of z products
+function updateProductCount(totalItems) {
+  const start = 1 + (currentPage - 1) * productsPerPage;
+  const end = Math.min(
+    Number(currentPage * productsPerPage),
+    Number(totalItems),
+  );
+  const countText = document.querySelector("#product-count");
+  countText.textContent = `Showing ${start}-${end} of ${totalItems} Products`;
+}
 
 function getFilteredProducts() {
   //کپی ارایه اصلی
@@ -157,6 +167,7 @@ function applyFilters(isNewFilter = true) {
   const paginated = getPaginatedProducts(filtered);
   renderProducts(paginated);
   renderPagination(filtered.length);
+  updateProductCount(filtered.length);
   loadAllIcons("..");
 }
 // debouns

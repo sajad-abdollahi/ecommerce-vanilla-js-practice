@@ -305,3 +305,16 @@
   color: var(--txt-secondary);
   user-select: none;
 }
+
+.product-count-cover {
+  flex: 1 1 0%;
+  display: flex;
+  align-items: center;
+  justify-content: end;
+  padding: 0px 15px;
+}
+
+#product-count {
+  color: var(--txt-secondary);
+  font-weight:bold ;
+}
