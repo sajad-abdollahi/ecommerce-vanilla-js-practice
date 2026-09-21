@@ -16,7 +16,7 @@ export function renderHeader(basePath = ".") {
             <div class="logo"><a href="../index.html">SHOP.CO</a></div>
             <input type="checkbox" id="nav-control" class="nav-control-checkbox">
 
-            <nav>
+            <nav id="navigation-links">
                 <a href="${basePath}/pages/Shop.html">Shop</a>
                 <a href="#">On Sale</a>
                 <a href="#">New Arrivals</a>

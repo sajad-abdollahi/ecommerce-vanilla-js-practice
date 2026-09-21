@@ -15,12 +15,22 @@
     <main>
         <nav class="breadcrumb">
             <a href="../index.html">Home</a>
-            <span>></span>
-            <span class="breadcrumb-current">Shop</span>
+            <span class="breadcrumb-arrow"> > </span>
+            <span class="breadcrumb-current"> Shop</span>
         </nav>
 
         <div class="shop-layout">
+            <div class="mobile-filter-btn-cover">
+                <button id="mobile-filter-btn" class="mobile-filter-btn" type="button">
+                    Filters
+                </button>
+            </div>
+            <div class="filter-overlay"></div>
             <aside class="filters-sidebar">
+                <div class="filter-close-btn-cover">
+
+                    <button class="filter-close-btn" type="button"> X </button>
+                </div>
                 <h2>Filters</h2>
                 <!-- category -->
                 <div class="filter-group">
@@ -121,12 +131,14 @@
                     <div class="product-count-cover">
                         <span id="product-count"></span>
                     </div>
-                    <select name="" id="" class="sort-select">
-                        <option value="popular">Most Popular</option>
-                        <option value="low-price">Lowest Price</option>
-                        <option value="high-price">Highest Price</option>
-                        <option value="high-rating">Highest Rating</option>
-                    </select>
+                    <div class="select-sort-products-cover">
+                        <select name="" id="" class="sort-select">
+                            <option value="popular">Most Popular</option>
+                            <option value="low-price">Lowest Price</option>
+                            <option value="high-price">Highest Price</option>
+                            <option value="high-rating">Highest Rating</option>
+                        </select>
+                    </div>
                 </div>
                 <div class="products-grid" id="products-grid"></div>
                 <div class="pagination" id="pagination"></div>

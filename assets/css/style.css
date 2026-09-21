@@ -81,7 +81,7 @@ header {
   font-weight: 700;
   font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
 }
-nav {
+#navigation-links {
   display: flex;
   align-items: center;
   gap: 24px;
@@ -113,7 +113,7 @@ nav {
     flex: 1 1 0%;
     padding-inline-start: 20px;
   }
-  nav {
+  #navigation-links {
     position: absolute;
     z-index: 1000;
     top: 70px;
@@ -167,7 +167,7 @@ nav {
     }
   }
 
-  .nav-control-checkbox:checked ~ nav {
+  .nav-control-checkbox:checked ~ #navigation-links {
     transform: translateX(0);
     display: flex;
   }
@@ -290,12 +290,19 @@ main {
   background-color: var(--bg-secondary);
 }
 .max-width-cover {
-  display: flex;
+  display: grid;
+  grid-template-areas: "info" "heroImage";
   width: 100%;
   max-width: 1320px;
   height: 100%;
 }
+@media (max-width: 768px) {
+  .max-width-cover {
+    grid-template-areas: "heroImage" "info";
+  }
+}
 .info {
+  grid-area: info;
   width: 50%;
   padding-top: 60px;
   padding-bottom: 120px;
@@ -341,6 +348,7 @@ main {
   }
 }
 .hero-image {
+  grid-area: heroImage;
   width: 50%;
   position: relative;
 
@@ -866,6 +874,7 @@ main {
   color: var(--txt-white);
   font-size: clamp(24px, 4vw, 40px);
   font-weight: bold;
+  user-select: none;
 }
 
 .newsletter-form {

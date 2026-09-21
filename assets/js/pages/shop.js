@@ -317,3 +317,22 @@ resetFilterBtn.addEventListener("click", () => {
   removeFilter(styleFilter);
   applyFilters();
 });
+// filters hn mobile
+const filterBtn = document.querySelector("#mobile-filter-btn");
+const filterSidebar = document.querySelector(".filters-sidebar");
+const filterOverlay = document.querySelector(".filter-overlay");
+const filterCloseBtn = document.querySelector(".filter-close-btn");
+
+filterBtn.addEventListener("click", () => {
+  filterSidebar.classList.toggle("show");
+  filterOverlay.classList.toggle("show");
+});
+function closeFilterDrawer() {
+  const layers = [filterSidebar, filterOverlay];
+  layers.forEach((layer) => {
+    layer.classList.remove("show");
+  });
+}
+
+filterCloseBtn.addEventListener("click", closeFilterDrawer);
+filterOverlay.addEventListener("click", closeFilterDrawer);

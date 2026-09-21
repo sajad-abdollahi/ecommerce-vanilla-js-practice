@@ -25,40 +25,104 @@
 .breadcrumb-current {
   color: var(--txt-primary);
 }
+.breadcrumb-arrow {
+  margin-inline: 5px;
+}
 .shop-layout {
-  display: flex;
+  display: grid;
+  grid-template-columns: 250px 1fr;
+  grid-template-areas: "filters products";
   gap: 20px;
   width: 100%;
   max-width: 1320px;
-  padding: 20px;
+  padding: 10px;
+}
+.mobile-filter-btn-cover {
+  display: none;
+  justify-content: end;
+  position: sticky;
+  top: 100px;
+  z-index: 1;
+}
+.mobile-filter-btn {
+  grid-area: filter-btn;
+  width: 100px;
+  padding: 7px 5px;
+  border: none;
+  border-radius: 9999px;
+  background-color: var(--bg-black);
+  color: var(--txt-white);
 }
 .filters-sidebar {
-  width: 250px;
-  flex-shrink: 0;
+  grid-area: filters;
   display: flex;
   flex-direction: column;
-  justify-content: start;
+  width: 100%;
+  max-width: 250px;
   gap: 30px;
 }
 .product-area {
   flex: 1;
+  grid-area: products;
 }
 .products-area-header {
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding: 10px;
+  flex-wrap: wrap;
 }
 .product-title {
-  font-size: x-large;
+  font-size: clamp(20px, 5vw, 32px);
 }
-
+@media (max-width: 768px) {
+  .products-area-header {
+    flex-direction: column;
+    align-items: start;
+    gap: 10px;
+  }
+  .select-sort-products-cover {
+    width: 100%;
+    display: flex;
+    justify-content: end;
+  }
+}
 /* product grid */
 .products-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+
+  list-style: none;
   border-bottom: 2px solid var(--bor-blk-liter);
   padding-bottom: 30px;
 }
-
+.filter-overlay {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  z-index: 999;
+  background-color: var(--overlay-color);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+.filter-close-btn-cover {
+  display: flex;
+  justify-content: end;
+  display: none;
+}
+.filter-close-btn {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  border: none;
+  background-color: var(--bg-black);
+  color: var(--txt-white);
+  box-shadow: 2px 3px 5px var(--shado-gray-liter);
+}
 .sort-select {
   padding: 8px 16px;
   border: 1px solid #00000030;
@@ -77,12 +141,6 @@
 
 .sort-select:focus {
   border-color: var(--bg-black);
-}
-.products-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 20px;
-  list-style: none;
 }
 
 .empty-state {
@@ -268,6 +326,7 @@
   align-items: center;
   justify-content: center;
   gap: 5px;
+  flex-wrap: wrap;
 
   & button {
     width: 40px;
@@ -286,6 +345,15 @@
     background-color: var(--bg-black);
     color: var(--txt-white);
     border: 1px solid var(--bor-blk-liter);
+  }
+}
+@media (max-width: 768px) {
+  .pagination {
+    gap: 3px;
+  }
+  .pagination button {
+    padding: 6px 10px;
+    font-size: 13px;
   }
 }
 
@@ -307,14 +375,62 @@
 }
 
 .product-count-cover {
+  width: 100%;
   flex: 1 1 0%;
   display: flex;
   align-items: center;
-  justify-content: end;
-  padding: 0px 15px;
+  justify-content: center;
+  padding: 5px 0px;
 }
 
 #product-count {
   color: var(--txt-secondary);
-  font-weight:bold ;
+  font-weight: bold;
+}
+
+/* media */
+
+@media (max-width: 768px) {
+  .shop-layout {
+    grid-template-columns: 1fr;
+    grid-template-areas: "filter-btn" "products" "filters";
+  }
+  .mobile-filter-btn-cover {
+    display: flex;
+    position: sticky;
+    top: 105px;
+    z-index: 1;
+  }
+
+  .filters-sidebar {
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    max-width: 100%;
+    max-height: 80dvh;
+    background-color: var(--bg-primary);
+    border-radius: 20px 20px 0 0;
+    border-top: 1px solid var(--bor-blk-liter);
+    padding: 20px;
+    z-index: 1000;
+    overflow-y: auto;
+    transform: translateY(100%);
+    transition: transform 0.3s ease;
+  }
+  .filters-sidebar.show {
+    transform: translateY(0);
+  }
+
+  .filter-overlay.show {
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  .filter-close-btn-cover {
+    display: flex;
+  }
+  .product-count-cover {
+    justify-content: start;
+  }
 }
