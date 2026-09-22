@@ -291,19 +291,20 @@ main {
 }
 .max-width-cover {
   display: grid;
-  grid-template-areas: "info" "heroImage";
+  grid-template-columns: 1fr 1fr;
+  grid-template-areas: "info heroImage";
   width: 100%;
   max-width: 1320px;
   height: 100%;
 }
 @media (max-width: 768px) {
   .max-width-cover {
+    grid-template-columns: 1fr;
     grid-template-areas: "heroImage" "info";
   }
 }
 .info {
   grid-area: info;
-  width: 50%;
   padding-top: 60px;
   padding-bottom: 120px;
   display: flex;
@@ -349,7 +350,6 @@ main {
 }
 .hero-image {
   grid-area: heroImage;
-  width: 50%;
   position: relative;
 
   & img {
@@ -389,9 +389,7 @@ main {
   }
 }
 @media (max-width: 768px) {
-  .max-width-cover {
-    flex-direction: column;
-  }
+
   .info {
     width: 100%;
     padding: 40px 20px;
