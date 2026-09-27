@@ -6,7 +6,8 @@ export function createProductCard(product, basePath = ".") {
     (product.price * product.discount) / 100
   ).toFixed(2);
   return `
-    <li class="product-card">
+  <li class="product-card">
+    <a href="${basePath}/pages/product.html?slug=${product.slug}">
         <div class="prd-card-img">
             <img src="${basePath}/${product.image}" alt="${product.title}" loading="lazy">
             ${
@@ -29,6 +30,7 @@ export function createProductCard(product, basePath = ".") {
               }
            </div>
         </div>
-    </li>
+    </a>
+  </li>
     `;
 }

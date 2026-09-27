@@ -3,6 +3,10 @@
   margin: 0;
   box-sizing: border-box;
 }
+@view-transition {
+  navigation: auto;
+}
+
 button {
   cursor: pointer;
 }
@@ -389,7 +393,6 @@ main {
   }
 }
 @media (max-width: 768px) {
-
   .info {
     width: 100%;
     padding: 40px 20px;
@@ -540,6 +543,11 @@ main {
   flex: 0 0 calc((100% / var(--items-per-view)) - 20px);
   margin: 0 10px;
   box-sizing: border-box;
+}
+.product-card a {
+  text-decoration: none;
+  color: inherit;
+  display: block;
 }
 .prd-card-img {
   width: 100%;
