@@ -1,10 +1,8 @@
 import { createRatingStars } from "./rating-stars.js";
+import { getDiscountedPrice } from "../modules/pricing.js";
 
 export function createProductCard(product, basePath = ".") {
-  const discountedPrice = (
-    product.price -
-    (product.price * product.discount) / 100
-  ).toFixed(2);
+  const discountedPrice = getDiscountedPrice(product);
   return `
   <li class="product-card">
     <a href="${basePath}/pages/product.html?slug=${product.slug}">

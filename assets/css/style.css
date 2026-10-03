@@ -6,6 +6,16 @@
 @view-transition {
   navigation: auto;
 }
+.logo {
+  font-size: x-large;
+  & a {
+    text-decoration: none;
+    color: var(--txt-primary);
+    &:hover {
+      color: var(--txt-secondary);
+    }
+  }
+}
 
 button {
   cursor: pointer;

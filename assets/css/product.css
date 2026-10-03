@@ -1,0 +1,21 @@
+.product-detail {
+  display: flex;
+  gap: 40px;
+  width: 100%;
+  max-width: 1320px;
+  padding: 20px;
+  margin: 0 auto;
+}
+
+.product-images {
+  flex: 1;
+}
+
+.product-images img {
+  width: 100%;
+  border-radius: 12px;
+}
+
+.product-info-detail {
+  flex: 1;
+}
