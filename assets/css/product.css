@@ -18,4 +18,102 @@
 
 .product-info-detail {
   flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.color-options {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+.color-option {
+  width: 25px;
+  height: 25px;
+  border: 1px solid var(--bor-blk-liter);
+  border-radius: 50%;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  cursor: pointer;
+}
+.color-option::after {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 3px;
+  border-radius: 9999px;
+  background-color: gray;
+  bottom: -6px;
+  opacity: 0;
+  transition: width 0.3s ease;
+}
+
+.color-option.active::after {
+  width: 15px;
+  opacity: 1;
+}
+
+.size-options {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+.size-option {
+  padding: 6px;
+  border: 1px solid #00000030;
+  border-radius: 6px;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+.size-option.active {
+  background-color: var(--bg-black);
+  color: var(--txt-white);
+}
+/* quantity-section */
+
+.quantity-section {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 5px;
+
+  & button {
+    background: none;
+    font-family: "Vazirmatn";
+    font-size: clamp(10px, 4vw, 15px);
+    border: 1px solid var(--bor-blk-liter);
+    border-radius: 6px;
+    width: 30px;
+    transition:
+      background-color 0.3s ease,
+      color 0.3s ease;
+
+    &:active {
+      background-color: var(--bg-black);
+      color: var(--txt-white);
+    }
+  }
+}
+
+#add-to-cart-btn {
+  width: 160px;
+  background-color: var(--bg-black);
+  color: var(--txt-white);
+  border: none;
+  padding: 5px;
+  border-radius: 9999px;
+}
+/* empty-page */
+
+.empty-page {
+  width: 100%;
+  aspect-ratio: 3/1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid red;
+  gap: 5px;
 }

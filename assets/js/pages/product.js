@@ -17,35 +17,71 @@ function renderProductDetail(product) {
   const container = document.querySelector("#product-detail");
   if (product) {
     const discountedPrice = getDiscountedPrice(product);
+    const colorsHTML = product.colors
+      .map(
+        (color, index) =>
+          `<button type="button" class="color-option ${index === 0 ? "active" : ""}" data-color="${color}" style="background-color: ${color};"></button>`,
+      )
+      .join("");
+
+    const sizesHTML = product.sizes
+      .map(
+        (size, index) =>
+          `<button type="button" class="size-option ${index === 0 ? "active" : ""}" data-size="${size}">${size}</button>`,
+      )
+      .join("");
     container.innerHTML = `
     <div class="product-images">
       <img src="../${product.image}" alt="${product.title}">
     </div>
     <div class="product-info-detail">
-      <h1>${product.title}</h1>
-      <div class="stars-container">
-      ${createRatingStars(product.rating.rate)}
-    </div>
-    <div class="price-section">
-      ${
-        product.discount > 0
-          ? `<span class="price">$${discountedPrice}</span>
-            <span class="old-price">$${product.price}</span>`
-          : `<span class="price">$${product.price}</span>`
-      }
-    </div>
-    <p class="product-description">${product.description}</p>
+        <h1>${product.title}</h1>
+        <div class="stars-container">
+          ${createRatingStars(product.rating.rate)}
+        </div>
+      <div class="price-section">
+        ${
+          product.discount > 0
+            ? `<span class="price">$${discountedPrice}</span>
+              <span class="old-price">$${product.price}</span>`
+            : `<span class="price">$${product.price}</span>`
+        }
+      </div>
+        <p class="product-description">${product.description}</p>
+        <div class="color-options">${colorsHTML}</div>
+        <div class="size-options">${sizesHTML}</div>
+        <div class="quantity-section">
+            <button type="button" id="qty-decrease">-</button>
+            <span id="qty-value">1</span>
+            <button type="button" id="qty-increase">+</button>
+        </div>
+        <button type="button" id="add-to-cart-btn">Add to Cart</button>
     </div>
     `;
   } else {
     container.innerHTML = `
      <div class="empty-page">
-        <span>this page hs empty</span>
+        <span>this page is empty</span>
         <a  href="../index.html">go back home</a>
         <a href="Shop.html">go back shop</a>
     </div>`;
   }
 }
+
+const detailContainer = document.querySelector("#product-detail");
+detailContainer.addEventListener("click", (event) => {
+  if (event.target.classList.contains("color-option")) {
+    const allColorButtons = detailContainer.querySelectorAll(".color-option");
+    allColorButtons.forEach((btn) => btn.classList.remove("active"));
+    event.target.classList.add("active");
+  }
+  if (event.target.classList.contains("size-option")) {
+    const allSizeButtons = detailContainer.querySelectorAll(".size-option");
+    allSizeButtons.forEach((btn) => btn.classList.remove("active"));
+    event.target.classList.add("active");
+  }
+});
+
 renderProductDetail(product);
 renderHeader("..");
 initHeaderBehavior();
@@ -53,3 +89,36 @@ renderFooter();
 renderNewsletter();
 initNewsletterBehavior();
 loadAllIcons("..");
+
+if (product) {
+  let quantity = 1;
+
+  const qtyDecreaseBtn = document.querySelector("#qty-decrease");
+  const qtyIncreaseBtn = document.querySelector("#qty-increase");
+  const qtyValueText = document.querySelector("#qty-value");
+
+  qtyDecreaseBtn.addEventListener("click", () => {
+    if (quantity > 1) {
+      quantity -= 1;
+      qtyValueText.textContent = quantity;
+    }
+  });
+  qtyIncreaseBtn.addEventListener("click", () => {
+    quantity += 1;
+    qtyValueText.textContent = quantity;
+  });
+
+  const addToCartBtn = document.querySelector("#add-to-cart-btn");
+  addToCartBtn.addEventListener("click", () => {
+    const selectedColor = detailContainer.querySelector(".color-option.active")
+      .dataset.color;
+    const selectedSize = detailContainer.querySelector(".size-option.active")
+      .dataset.size;
+    console.log("Added to cart:", {
+      product: product.title,
+      color: selectedColor,
+      size: selectedSize,
+      quantity: quantity,
+    });
+  });
+}
