@@ -1,4 +1,4 @@
-.breadcrumb {
+/* .breadcrumb {
   padding: 10px 20px;
   width: 100%;
   max-width: 1320px;
@@ -16,7 +16,7 @@
 }
 .breadcrumb-arrow {
   margin-inline: 5px;
-}
+} */
 .shop-layout {
   display: grid;
   grid-template-columns: 250px 1fr;
