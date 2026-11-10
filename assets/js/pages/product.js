@@ -32,7 +32,7 @@ function renderProductDetail(product) {
       .join("");
     container.innerHTML = `
     <div class="product-images">
-      <img src="../${product.image}" alt="${product.title}">
+      <img src="../${product.images[0]}" alt="${product.title}">
     </div>
     <div class="product-info-detail">
         <h1>${product.title}</h1>
