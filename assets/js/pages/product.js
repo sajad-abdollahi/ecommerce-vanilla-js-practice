@@ -83,6 +83,11 @@ detailContainer.addEventListener("click", (event) => {
 });
 
 renderProductDetail(product);
+if (product) {
+  const productBreadcrumb = document.querySelector("#product-breadcrumb");
+  productBreadcrumb.textContent = product.title;
+  document.title = `${product.title} - SHOP.CO`;
+}
 renderHeader("..");
 initHeaderBehavior();
 renderFooter();
