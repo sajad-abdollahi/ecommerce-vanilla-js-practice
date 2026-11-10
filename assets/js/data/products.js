@@ -9,8 +9,7 @@ export const products = [
     discount: 10,
     category: "t-shirts",
     collections: ["new-arrivals", "top-selling"],
-    rating: { rate: 5, count: 120 },
-
+    rating: { rate: 5, count: 120 },   
     images: ["assets/imgs/products/T-SHIRT-WITH-TAPE-DETAILS.png"],
     colors: ["black", "white"],
     sizes: ["S", "M", "L", "XL"],
@@ -26,8 +25,7 @@ export const products = [
     discount: 20,
     category: "jeans",
     collections: ["new-arrivals"],
-    rating: { rate: 4, count: 85 },
-
+    rating: { rate: 4, count: 85 },   
     images: ["assets/imgs/products/SKINNY-FIT-JEANS.png"],
     colors: ["blue", "black"],
     sizes: ["30", "32", "34", "36"],
@@ -43,8 +41,7 @@ export const products = [
     discount: 15,
     category: "shirts",
     collections: ["top-selling"],
-    rating: { rate: 5, count: 200 },
-
+    rating: { rate: 5, count: 200 },   
     images: ["assets/imgs/products/CHECKERED-SHIRT.png"],
     colors: ["red", "black"],
     sizes: ["S", "M", "L"],
@@ -60,8 +57,7 @@ export const products = [
     discount: 5,
     category: "t-shirts",
     collections: ["new-arrivals"],
-    rating: { rate: 4, count: 90 },
-
+    rating: { rate: 4, count: 90 },   
     images: ["assets/imgs/products/SLEEVE-STRIPED%20T-SHIRT.png"],
     colors: ["white", "blue"],
     sizes: ["S", "M", "L"],
@@ -77,8 +73,7 @@ export const products = [
     discount: 15,
     category: "shirts",
     collections: ["top-selling"],
-    rating: { rate: 5, count: 150 },
-
+    rating: { rate: 5, count: 150 },   
     images: ["assets/imgs/products/CHECKERED-SHIRT.png"],
     colors: ["black", "gray"],
     sizes: ["M", "L", "XL"],
@@ -94,8 +89,7 @@ export const products = [
     discount: 10,
     category: "jeans",
     collections: ["new-arrivals"],
-    rating: { rate: 4, count: 70 },
-
+    rating: { rate: 4, count: 70 },   
     images: ["assets/imgs/products/SKINNY-FIT-JEANS.png"],
     colors: ["blue"],
     sizes: ["30", "32", "34"],
@@ -111,8 +105,7 @@ export const products = [
     discount: 0,
     category: "t-shirts",
     collections: ["top-selling"],
-    rating: { rate: 5, count: 110 },
-
+    rating: { rate: 5, count: 110 },   
     images: ["assets/imgs/products/T-SHIRT-WITH-TAPE-DETAILS.png"],
     colors: ["black"],
     sizes: ["S", "M", "L"],
@@ -128,8 +121,7 @@ export const products = [
     discount: 20,
     category: "shirts",
     collections: ["new-arrivals"],
-    rating: { rate: 4, count: 95 },
-
+    rating: { rate: 4, count: 95 },   
     images: ["assets/imgs/products/CHECKERED-SHIRT.png"],
     colors: ["red", "white"],
     sizes: ["M", "L", "XL"],
@@ -145,8 +137,7 @@ export const products = [
     discount: 0,
     category: "jeans",
     collections: [],
-    rating: { rate: 3, count: 40 },
-
+    rating: { rate: 3, count: 40 },   
     images: ["assets/imgs/products/SKINNY-FIT-JEANS.png"],
     colors: ["black", "gray"],
     sizes: ["30", "32"],
@@ -162,8 +153,7 @@ export const products = [
     discount: 5,
     category: "t-shirts",
     collections: [],
-    rating: { rate: 4, count: 60 },
-
+    rating: { rate: 4, count: 60 },   
     images: ["assets/imgs/products/SLEEVE-STRIPED%20T-SHIRT.png"],
     colors: ["gray", "blue"],
     sizes: ["S", "M", "L", "XL"],
@@ -179,8 +169,7 @@ export const products = [
     discount: 10,
     category: "shirts",
     collections: [],
-    rating: { rate: 5, count: 130 },
-
+    rating: { rate: 5, count: 130 },   
     images: ["assets/imgs/products/CHECKERED-SHIRT.png"],
     colors: ["gray", "black"],
     sizes: ["M", "L"],
@@ -196,8 +185,7 @@ export const products = [
     discount: 0,
     category: "t-shirts",
     collections: [],
-    rating: { rate: 3, count: 33 },
-
+    rating: { rate: 3, count: 33 },   
     images: ["assets/imgs/products/T-SHIRT-WITH-TAPE-DETAILS.png"],
     colors: ["white"],
     sizes: ["S", "M"],
@@ -213,8 +201,7 @@ export const products = [
     discount: 25,
     category: "jeans",
     collections: [],
-    rating: { rate: 4, count: 77 },
-
+    rating: { rate: 4, count: 77 },   
     images: ["assets/imgs/products/SKINNY-FIT-JEANS.png"],
     colors: ["blue", "gray"],
     sizes: ["32", "34", "36"],
@@ -230,8 +217,7 @@ export const products = [
     discount: 0,
     category: "shirts",
     collections: [],
-    rating: { rate: 4, count: 58 },
-
+    rating: { rate: 4, count: 58 },   
     images: ["assets/imgs/products/CHECKERED-SHIRT.png"],
     colors: ["red"],
     sizes: ["S", "M", "L"],
@@ -247,8 +233,7 @@ export const products = [
     discount: 10,
     category: "t-shirts",
     collections: [],
-    rating: { rate: 5, count: 140 },
-
+    rating: { rate: 5, count: 140 },   
     images: ["assets/imgs/products/T-SHIRT-WITH-TAPE-DETAILS.png"],
     colors: ["gray", "black"],
     sizes: ["M", "L", "XL"],
@@ -264,8 +249,7 @@ export const products = [
     discount: 15,
     category: "jeans",
     collections: [],
-    rating: { rate: 3, count: 29 },
-
+    rating: { rate: 3, count: 29 },   
     images: ["assets/imgs/products/SKINNY-FIT-JEANS.png"],
     colors: ["blue"],
     sizes: ["30", "32", "34"],
@@ -281,8 +265,7 @@ export const products = [
     discount: 0,
     category: "shirts",
     collections: [],
-    rating: { rate: 4, count: 66 },
-
+    rating: { rate: 4, count: 66 },   
     images: ["assets/imgs/products/CHECKERED-SHIRT.png"],
     colors: ["white", "gray"],
     sizes: ["M", "L", "XL"],
@@ -298,8 +281,7 @@ export const products = [
     discount: 20,
     category: "t-shirts",
     collections: [],
-    rating: { rate: 4, count: 52 },
-
+    rating: { rate: 4, count: 52 },   
     images: ["assets/imgs/products/SLEEVE-STRIPED%20T-SHIRT.png"],
     colors: ["red", "black"],
     sizes: ["S", "M", "L"],
@@ -315,8 +297,7 @@ export const products = [
     discount: 5,
     category: "jeans",
     collections: [],
-    rating: { rate: 5, count: 101 },
-
+    rating: { rate: 5, count: 101 },   
     images: ["assets/imgs/products/SKINNY-FIT-JEANS.png"],
     colors: ["black", "blue"],
     sizes: ["32", "34"],
@@ -332,8 +313,7 @@ export const products = [
     discount: 10,
     category: "shirts",
     collections: [],
-    rating: { rate: 3, count: 38 },
-
+    rating: { rate: 3, count: 38 },   
     images: ["assets/imgs/products/CHECKERED-SHIRT.png"],
     colors: ["gray", "red"],
     sizes: ["S", "M"],
@@ -349,8 +329,7 @@ export const products = [
     discount: 0,
     category: "t-shirts",
     collections: [],
-    rating: { rate: 4, count: 47 },
-
+    rating: { rate: 4, count: 47 },   
     images: ["assets/imgs/products/T-SHIRT-WITH-TAPE-DETAILS.png"],
     colors: ["white", "gray"],
     sizes: ["S", "L", "XL"],
@@ -366,8 +345,7 @@ export const products = [
     discount: 30,
     category: "jeans",
     collections: [],
-    rating: { rate: 4, count: 84 },
-
+    rating: { rate: 4, count: 84 },   
     images: ["assets/imgs/products/SKINNY-FIT-JEANS.png"],
     colors: ["black"],
     sizes: ["30", "32", "34"],
@@ -383,8 +361,7 @@ export const products = [
     discount: 0,
     category: "shirts",
     collections: [],
-    rating: { rate: 5, count: 122 },
-
+    rating: { rate: 5, count: 122 },   
     images: ["assets/imgs/products/CHECKERED-SHIRT.png"],
     colors: ["white", "black"],
     sizes: ["M", "L", "XL"],
@@ -400,8 +377,7 @@ export const products = [
     discount: 15,
     category: "t-shirts",
     collections: [],
-    rating: { rate: 3, count: 26 },
-
+    rating: { rate: 3, count: 26 },   
     images: ["assets/imgs/products/SLEEVE-STRIPED%20T-SHIRT.png"],
     colors: ["blue", "white"],
     sizes: ["M", "L"],
@@ -417,8 +393,7 @@ export const products = [
     discount: 10,
     category: "jeans",
     collections: [],
-    rating: { rate: 4, count: 71 },
-
+    rating: { rate: 4, count: 71 },   
     images: ["assets/imgs/products/SKINNY-FIT-JEANS.png"],
     colors: ["gray", "blue"],
     sizes: ["32", "34", "36"],
@@ -434,8 +409,7 @@ export const products = [
     discount: 5,
     category: "shirts",
     collections: [],
-    rating: { rate: 4, count: 63 },
-
+    rating: { rate: 4, count: 63 },   
     images: ["assets/imgs/products/CHECKERED-SHIRT.png"],
     colors: ["red", "gray"],
     sizes: ["S", "M", "L", "XL"],
@@ -451,8 +425,7 @@ export const products = [
     discount: 0,
     category: "t-shirts",
     collections: [],
-    rating: { rate: 3, count: 19 },
-
+    rating: { rate: 3, count: 19 },   
     images: ["assets/imgs/products/T-SHIRT-WITH-TAPE-DETAILS.png"],
     colors: ["white", "black"],
     sizes: ["S", "M", "L"],
@@ -468,8 +441,7 @@ export const products = [
     discount: 20,
     category: "jeans",
     collections: [],
-    rating: { rate: 5, count: 98 },
-
+    rating: { rate: 5, count: 98 },   
     images: ["assets/imgs/products/SKINNY-FIT-JEANS.png"],
     colors: ["blue", "black"],
     sizes: ["30", "34", "36"],
@@ -485,8 +457,7 @@ export const products = [
     discount: 10,
     category: "shirts",
     collections: [],
-    rating: { rate: 4, count: 54 },
-
+    rating: { rate: 4, count: 54 },   
     images: ["assets/imgs/products/CHECKERED-SHIRT.png"],
     colors: ["black", "white"],
     sizes: ["M", "L"],
@@ -502,8 +473,7 @@ export const products = [
     discount: 0,
     category: "t-shirts",
     collections: [],
-    rating: { rate: 4, count: 45 },
-
+    rating: { rate: 4, count: 45 },   
     images: ["assets/imgs/products/SLEEVE-STRIPED%20T-SHIRT.png"],
     colors: ["gray", "white"],
     sizes: ["S", "M", "XL"],
