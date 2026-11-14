@@ -69,6 +69,7 @@ function renderProductDetail(product) {
 
 let selectedColor = product ? product.colors[0] : null;
 let selectedSize = product ? product.sizes[0] : null;
+let quantity = 1;
 
 const detailContainer = document.querySelector("#product-detail");
 detailContainer.addEventListener("click", (event) => {
@@ -103,8 +104,6 @@ initNewsletterBehavior();
 loadAllIcons("..");
 
 if (product) {
-  let quantity = 1;
-
   const qtyDecreaseBtn = document.querySelector("#qty-decrease");
   const qtyIncreaseBtn = document.querySelector("#qty-increase");
   const qtyValueText = document.querySelector("#qty-value");
