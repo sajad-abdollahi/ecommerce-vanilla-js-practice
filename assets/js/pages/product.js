@@ -36,9 +36,10 @@ function renderProductDetail(product) {
           `<button type="button" class="image-option ${index === 0 ? "active" : ""}" data-index="${index}"><img src="../${img}" alt="${product.title} - image ${index + 1}"></button>`,
       )
       .join("");
+
     container.innerHTML = `
     <div class="product-images">
-      <img src="../${product.images[0]}" alt="${product.title}">
+      <img src="../${product.images[0]}" class="main-image" alt="${product.title}">
       <div class="image-options">${thumbnailsHTML}</div>
     </div>
     <div class="product-info-detail">
@@ -77,11 +78,13 @@ function renderProductDetail(product) {
 let selectedColor = product ? product.colors[0] : null;
 let selectedSize = product ? product.sizes[0] : null;
 let quantity = 1;
+let selectedImageIndex = 0;
 
 const detailContainer = document.querySelector("#product-detail");
 detailContainer.addEventListener("click", (event) => {
   const isColorButton = event.target.classList.contains("color-option");
   const isSizeButton = event.target.classList.contains("size-option");
+  const imageButton = event.target.closest(".image-option");
 
   if (isColorButton) {
     selectedColor = event.target.dataset.color;
@@ -95,8 +98,15 @@ detailContainer.addEventListener("click", (event) => {
     allSizeButtons.forEach((btn) => btn.classList.remove("active"));
     event.target.classList.add("active");
   }
+  if (imageButton) {
+    const mainImage = detailContainer.querySelector(".main-image");
+    selectedImageIndex = Number(imageButton.dataset.index);
+    mainImage.setAttribute("src", `../${product.images[selectedImageIndex]}`);
+    const allImageButtons = detailContainer.querySelectorAll(".image-option");
+    allImageButtons.forEach((btn) => btn.classList.remove("active"));
+    imageButton.classList.add("active");
+  }
 });
-
 renderProductDetail(product);
 if (product) {
   const productBreadcrumb = document.querySelector("#product-breadcrumb");
