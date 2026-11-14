@@ -30,9 +30,16 @@ function renderProductDetail(product) {
           `<button type="button" class="size-option ${index === 0 ? "active" : ""}" data-size="${size}">${size}</button>`,
       )
       .join("");
+    const thumbnailsHTML = product.images
+      .map(
+        (img, index) =>
+          `<button type="button" class="image-option ${index === 0 ? "active" : ""}" data-index="${index}"><img src="../${img}" alt="${product.title} - image ${index + 1}"></button>`,
+      )
+      .join("");
     container.innerHTML = `
     <div class="product-images">
       <img src="../${product.images[0]}" alt="${product.title}">
+      <div class="image-options">${thumbnailsHTML}</div>
     </div>
     <div class="product-info-detail">
         <h1>${product.title}</h1>
