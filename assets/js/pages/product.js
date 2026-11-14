@@ -42,8 +42,7 @@ function renderProductDetail(product) {
       <div class="price-section">
         ${
           product.discount > 0
-            ? `<span class="price">$${discountedPrice}</span>
-              <span class="old-price">$${product.price}</span>`
+            ? `<span class="price">$${discountedPrice}</span> <span class="old-price">$${product.price}</span>`
             : `<span class="price">$${product.price}</span>`
         }
       </div>
@@ -68,14 +67,22 @@ function renderProductDetail(product) {
   }
 }
 
+let selectedColor = product ? product.colors[0] : null;
+let selectedSize = product ? product.sizes[0] : null;
+
 const detailContainer = document.querySelector("#product-detail");
 detailContainer.addEventListener("click", (event) => {
-  if (event.target.classList.contains("color-option")) {
+  const isColorButton = event.target.classList.contains("color-option");
+  const isSizeButton = event.target.classList.contains("size-option");
+
+  if (isColorButton) {
+    selectedColor = event.target.dataset.color;
     const allColorButtons = detailContainer.querySelectorAll(".color-option");
     allColorButtons.forEach((btn) => btn.classList.remove("active"));
     event.target.classList.add("active");
   }
-  if (event.target.classList.contains("size-option")) {
+  if (isSizeButton) {
+    selectedSize = event.target.dataset.size;
     const allSizeButtons = detailContainer.querySelectorAll(".size-option");
     allSizeButtons.forEach((btn) => btn.classList.remove("active"));
     event.target.classList.add("active");
@@ -112,13 +119,8 @@ if (product) {
     quantity += 1;
     qtyValueText.textContent = quantity;
   });
-
   const addToCartBtn = document.querySelector("#add-to-cart-btn");
   addToCartBtn.addEventListener("click", () => {
-    const selectedColor = detailContainer.querySelector(".color-option.active")
-      .dataset.color;
-    const selectedSize = detailContainer.querySelector(".size-option.active")
-      .dataset.size;
     console.log("Added to cart:", {
       product: product.title,
       color: selectedColor,
